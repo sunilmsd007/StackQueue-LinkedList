@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
  public class LinkedListImplementation {
+             //node creation
 		static class Node{
 			int data;
 			Node next; 
@@ -11,7 +12,7 @@ import java.util.Scanner;
 			  Node top=null;
 			  Node front=null;
 			  Node rear=null;
-			  
+			  //adding elements at front
 			void addAtFront() {
 				System.out.println("enter the data");
 					Scanner sc =new Scanner(System.in);
@@ -24,7 +25,8 @@ import java.util.Scanner;
 						newNode.next=top;
 						top=newNode;
 					}			
-			}
+			} 
+                   //appending the elements at back
                         void addAtBack() {
 				System.out.println("enter the data");
 				Scanner sc =new Scanner(System.in);
@@ -39,6 +41,7 @@ import java.util.Scanner;
 					rear=newNode;
 				}
 			}
+                      //adding elements at desired position taking user input
 			void addAtPosition() {
 				System.out.println("enter position");
 				Scanner sc =new Scanner(System.in);
@@ -58,6 +61,7 @@ import java.util.Scanner;
 				System.out.println("now list is");
 				display();
 			}
+                     //deleeting the element from front
 			void deleteFromFront() {
 				if(top==null)
 					System.out.println("list empty");
@@ -67,6 +71,7 @@ import java.util.Scanner;
 					System.out.println("now list is");
 					display();
 			}
+                    //deleting the element from back
 			void deleteFromBack() {
 				if(front==null)
 					System.out.println("list empty");
@@ -76,6 +81,26 @@ import java.util.Scanner;
 					System.out.println("now list is");
 					display();
 			}
+                   //deleting element at desired position taking user input
+			void deleteAtPosition() {
+				System.out.println("enter the position");
+				Scanner sc =new Scanner(System.in);
+				int pos=sc.nextInt();
+				int count=1;
+				Node temp=top;
+				while(count<pos-1)
+				{
+					temp=temp.next;
+					count++;	
+				}
+				Node current=temp.next;
+			  	temp.next=current.next;
+				current.next=null;
+				System.out.println("deleted data is "+current.data);
+				System.out.println("now list is");
+				display();
+			}
+                   //displaying the linked list content
 			void display() {
 				Node temp=top;
 				while(temp!=null) {
@@ -97,8 +122,9 @@ public static void main(String[] args) {
 		 System.out.println("press 3 for Add At Position");
                  System.out.println("press 4 for delete From Front");
                  System.out.println("press 5 for delete From Back");
-                 System.out.println("press 6 for display");
-		 System.out.println("enter ur choice");
+                 System.out.println("press 6 for delete At Position");
+                 System.out.println("press 7 for display");
+                 System.out.println("enter ur choice");
 		 int choice=sc.nextInt();
 		 switch(choice) {
 		 case 1:
@@ -127,6 +153,11 @@ public static void main(String[] args) {
                          break;
                  }
                  case 6:
+                 {
+                         s.deleteAtPosition();
+                         break;
+                 }
+                 case 7:
                  {
                          s.display();
                          break;
