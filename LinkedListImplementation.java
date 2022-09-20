@@ -25,6 +25,20 @@ import java.util.Scanner;
 						top=newNode;
 					}			
 			}
+                        void addAtBack() {
+				System.out.println("enter the data");
+				Scanner sc =new Scanner(System.in);
+				int data=sc.nextInt();
+				Node newNode=new Node(data);
+				if(front==null) {
+					front=newNode;
+					rear=newNode;
+				}
+				else {
+					rear.next=newNode;
+					rear=newNode;
+				}
+			}
 			void display() {
 				Node temp=top;
 				while(temp!=null) {
@@ -42,8 +56,8 @@ public static void main(String[] args) {
 	 Scanner sc = new Scanner(System.in);
 	 do {
 		 System.out.println("press 1 to Add At Front");
-		 System.out.println("press 2 for display");
-		 
+		 System.out.println("press 2 for Add At Back");
+		 System.out.println("press 3 for display");
 		 System.out.println("enter ur choice");
 		 int choice=sc.nextInt();
 		 switch(choice) {
@@ -54,10 +68,15 @@ public static void main(String[] args) {
 		 }
 		 case 2:
 		 {
-			 s.display();
+			 s.addAtBack();
 			 break;
 		 }
-		 
+		 case 3:
+                 {
+                         s.display();
+                         break;
+                 }
+
 		 default:
 		 System.out.println("enter valid choice");
 		 
