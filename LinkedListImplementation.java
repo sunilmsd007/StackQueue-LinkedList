@@ -39,6 +39,25 @@ import java.util.Scanner;
 					rear=newNode;
 				}
 			}
+			void addAtPosition() {
+				System.out.println("enter position");
+				Scanner sc =new Scanner(System.in);
+				int pos=sc.nextInt();
+				System.out.println("enter data");
+				int data=sc.nextInt();
+				Node newNode = new Node(data);
+				int count=1;
+				Node temp=top;
+				while(count<pos-1)
+				{
+					temp=temp.next;
+					count++;	
+				}
+				newNode.next=temp.next;
+				temp.next=newNode;
+				System.out.println("now list is");
+				display();
+			}
 			void display() {
 				Node temp=top;
 				while(temp!=null) {
@@ -57,7 +76,8 @@ public static void main(String[] args) {
 	 do {
 		 System.out.println("press 1 to Add At Front");
 		 System.out.println("press 2 for Add At Back");
-		 System.out.println("press 3 for display");
+		 System.out.println("press 3 for Add At Position");
+                 System.out.println("press 4 for display");
 		 System.out.println("enter ur choice");
 		 int choice=sc.nextInt();
 		 switch(choice) {
@@ -72,6 +92,11 @@ public static void main(String[] args) {
 			 break;
 		 }
 		 case 3:
+                 {
+                         s.addAtPosition();
+                         break;
+                 }
+                 case 4:
                  {
                          s.display();
                          break;
