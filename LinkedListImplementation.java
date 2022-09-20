@@ -67,6 +67,15 @@ import java.util.Scanner;
 					System.out.println("now list is");
 					display();
 			}
+			void deleteFromBack() {
+				if(front==null)
+					System.out.println("list empty");
+				else
+					System.out.println("popped element is " +front.data);
+					front=front.next;
+					System.out.println("now list is");
+					display();
+			}
 			void display() {
 				Node temp=top;
 				while(temp!=null) {
@@ -87,7 +96,8 @@ public static void main(String[] args) {
 		 System.out.println("press 2 for Add At Back");
 		 System.out.println("press 3 for Add At Position");
                  System.out.println("press 4 for delete From Front");
-                 System.out.println("press 5 for display");
+                 System.out.println("press 5 for delete From Back");
+                 System.out.println("press 6 for display");
 		 System.out.println("enter ur choice");
 		 int choice=sc.nextInt();
 		 switch(choice) {
@@ -112,6 +122,11 @@ public static void main(String[] args) {
                          break;
                  }
                  case 5:
+                 {
+                         s.deleteFromBack();
+                         break;
+                 }
+                 case 6:
                  {
                          s.display();
                          break;
